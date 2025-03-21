@@ -1,39 +1,30 @@
 {
-  "name": "mcp-github-notifications",
+  "name": "github-notifications-mcp-server",
   "version": "1.0.0",
-  "description": "A Model Context Protocol server for GitHub Notifications API",
-  "main": "dist/index.js",
+  "description": "MCP server providing GitHub Notifications API tools",
   "type": "module",
+  "main": "build/index.js",
   "scripts": {
     "build": "tsc",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "dev": "npm run build && npx @modelcontextprotocol/inspector node dist/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yourusername/mcp-github-notifications.git"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.6.0",
-    "@octokit/rest": "^21.0.0",
-    "zod": "^3.24.2"
-  },
-  "devDependencies": {
-    "@types/node": "^22.13.5",
-    "eslint": "^9.21.0",
-    "neostandard": "^0.12.1",
-    "typescript": "^5.7.3"
+    "start": "node build/index.js",
+    "dev": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "mcp",
-    "model-context-protocol",
     "github",
     "notifications",
-    "api"
+    "mcp",
+    "model-context-protocol"
   ],
-  "engines": {
-    "node": ">=18.0.0"
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.14.0",
+    "dotenv": "^16.4.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "typescript": "^5.3.3"
   }
 }
