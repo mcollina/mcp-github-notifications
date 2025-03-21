@@ -1,0 +1,39 @@
+{
+  "name": "mcp-github-notifications",
+  "version": "1.0.0",
+  "description": "A Model Context Protocol server for GitHub Notifications API",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "dev": "npm run build && npx @modelcontextprotocol/inspector node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/mcp-github-notifications.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.6.0",
+    "@octokit/rest": "^21.0.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.5",
+    "eslint": "^9.21.0",
+    "neostandard": "^0.12.1",
+    "typescript": "^5.7.3"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "github",
+    "notifications",
+    "api"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
