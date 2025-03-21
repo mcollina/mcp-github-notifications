@@ -4,6 +4,22 @@
 import { NotificationResponse, ThreadSubscription, NotificationReason } from "../types/github-api.js";
 
 /**
+ * Converts a GitHub API URL to its HTML (web UI) equivalent
+ */
+export function convertApiUrlToHtmlUrl(apiUrl: string): string {
+  // Replace API domain with web UI domain
+  let htmlUrl = apiUrl.replace("api.github.com/repos", "github.com");
+  
+  // Fix pull request URLs - change 'pulls' to 'pull' in the URL
+  htmlUrl = htmlUrl.replace(/\/pulls\/([0-9]+)(\/?.*)/g, "/pull/$1$2");
+  
+  // Fix issue URLs - keep plural 'issues' since GitHub uses this in both API and web URLs
+  // This is just for completeness, as the API already uses the correct format
+  
+  return htmlUrl;
+}
+
+/**
  * Provides a human-readable description of a notification reason
  */
 export function describeReason(reason: NotificationReason): string {
@@ -45,7 +61,7 @@ Type: ${type}
 Reason: ${notification.reason} (${reason})
 Status: ${status}
 Updated: ${date}
-URL: ${notification.subject.url.replace("api.github.com/repos", "github.com")}`;
+URL: ${convertApiUrlToHtmlUrl(notification.subject.url)}`;
 }
 
 /**

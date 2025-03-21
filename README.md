@@ -94,6 +94,18 @@ Here are some example prompts you can use with Claude Desktop once the server is
 
 ## Development
 
+### URL Handling
+
+This server automatically converts GitHub API URLs to their corresponding web UI URLs. For example:
+
+- API URL: `https://api.github.com/repos/nodejs/node/pulls/57557`
+- Converted to: `https://github.com/nodejs/node/pull/57557`
+
+The conversion handles:
+- Domain conversion from `api.github.com/repos` to `github.com`
+- Path correction for pull requests (changing `pulls` to `pull`)
+- Preservation of additional path segments
+
 ### Project Structure
 
 ```
@@ -115,6 +127,20 @@ github-notifications-mcp-server/
 
 ```
 npm run build
+```
+
+### Testing
+
+Run the automated tests:
+
+```
+npm test
+```
+
+Test URL conversion manually:
+
+```
+npm run test:url
 ```
 
 ## License
