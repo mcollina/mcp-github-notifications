@@ -17,7 +17,7 @@ export const listRepoNotificationsSchema = z.object({
   since: z.string().optional().describe("ISO 8601 timestamp - only show notifications updated after this time"),
   before: z.string().optional().describe("ISO 8601 timestamp - only show notifications updated before this time"),
   page: z.number().optional().describe("Page number for pagination"),
-  per_page: z.number().optional().max(100).describe("Number of results per page (max 100)")
+  per_page: z.number().optional().describe("Number of results per page (max 100)")
 });
 
 /**
@@ -25,6 +25,9 @@ export const listRepoNotificationsSchema = z.object({
  */
 export async function listRepoNotificationsHandler(args: z.infer<typeof listRepoNotificationsSchema>) {
   try {
+    const perPage = args.per_page || 30;
+    const page = args.page || 1;
+    
     // Make request to GitHub API
     const notifications = await githubGet<NotificationResponse[]>(`/repos/${args.owner}/${args.repo}/notifications`, {
       params: {
@@ -32,8 +35,8 @@ export async function listRepoNotificationsHandler(args: z.infer<typeof listRepo
         participating: args.participating,
         since: args.since,
         before: args.before,
-        page: args.page || 1,
-        per_page: args.per_page || 30,
+        page: page,
+        per_page: perPage,
       }
     });
 
@@ -53,9 +56,9 @@ export async function listRepoNotificationsHandler(args: z.infer<typeof listRepo
     // Check for pagination - simplified approach without headers
     let paginationInfo = "";
     
-    if (notifications.length === (args.per_page || 30)) {
+    if (notifications.length === perPage) {
       paginationInfo = "\n\nMore notifications may be available. You can view the next page by specifying 'page: " + 
-        ((args.page || 1) + 1) + "' in the request.";
+        (page + 1) + "' in the request.";
     }
 
     return {

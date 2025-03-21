@@ -1,7 +1,7 @@
 /**
  * GitHub Notifications MCP Server
  */
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 
 // Import tool registrations
@@ -22,9 +22,13 @@ import { registerMarkRepoNotificationsReadTool } from "./tools/mark-repo-notific
 export async function startServer() {
   try {
     // Create MCP server
-    const server = new McpServer({
+    const server = new Server({
       name: "github-notifications",
       version: "1.0.0"
+    }, {
+      capabilities: {
+        tools: {}
+      }
     });
     
     console.error("Initializing GitHub Notifications MCP Server...");

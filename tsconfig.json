@@ -11,7 +11,11 @@
     "rootDir": "./src",
     "sourceMap": true,
     "declaration": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@modelcontextprotocol/sdk/*": ["node_modules/@modelcontextprotocol/sdk/dist/*"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "build"]
