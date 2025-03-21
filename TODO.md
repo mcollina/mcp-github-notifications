@@ -4,102 +4,102 @@ This document outlines the tasks required to implement the GitHub Notifications 
 
 ## Initial Setup
 
-- [ ] Create project directory structure
-- [ ] Initialize TypeScript project (`npm init -y` & `tsc --init`)
-- [ ] Configure TypeScript (`tsconfig.json`)
-- [ ] Add dependencies:
-  - [ ] `@modelcontextprotocol/sdk` - MCP SDK
-  - [ ] `zod` - Schema validation
-  - [ ] `dotenv` - Environment variable management
-  - [ ] TypeScript dev dependencies
-- [ ] Create build and start scripts in `package.json`
-- [ ] Set up environment variable handling (`.env` file)
+- [x] Create project directory structure
+- [x] Initialize TypeScript project (`npm init -y` & `tsc --init`)
+- [x] Configure TypeScript (`tsconfig.json`)
+- [x] Add dependencies:
+  - [x] `@modelcontextprotocol/sdk` - MCP SDK
+  - [x] `zod` - Schema validation
+  - [x] `dotenv` - Environment variable management
+  - [x] TypeScript dev dependencies
+- [x] Create build and start scripts in `package.json`
+- [x] Set up environment variable handling (`.env` file)
 
 ## API Client Implementation
 
-- [ ] Create base API client utility (`src/utils/api.ts`)
-  - [ ] Implement `githubGet()` function using fetch API
-  - [ ] Implement `githubPut()` function using fetch API
-  - [ ] Implement `githubPatch()` function using fetch API
-  - [ ] Implement `githubDelete()` function using fetch API
-  - [ ] Add error handling and status code processing
-  - [ ] Implement rate limit monitoring
-- [ ] Create GitHub API type definitions (`src/types/github-api.ts`)
-  - [ ] Define `NotificationResponse` interface
-  - [ ] Define `ThreadSubscription` interface
-  - [ ] Define other necessary types
+- [x] Create base API client utility (`src/utils/api.ts`)
+  - [x] Implement `githubGet()` function using fetch API
+  - [x] Implement `githubPut()` function using fetch API
+  - [x] Implement `githubPatch()` function using fetch API
+  - [x] Implement `githubDelete()` function using fetch API
+  - [x] Add error handling and status code processing
+  - [x] Implement rate limit monitoring
+- [x] Create GitHub API type definitions (`src/types/github-api.ts`)
+  - [x] Define `NotificationResponse` interface
+  - [x] Define `ThreadSubscription` interface
+  - [x] Define other necessary types
 
 ## Formatting Utilities
 
-- [ ] Create response formatters (`src/utils/formatters.ts`)
-  - [ ] Implement `formatNotification()` function
-  - [ ] Implement `formatSubscription()` function
-  - [ ] Implement `formatError()` function
-  - [ ] Add reason code descriptions
+- [x] Create response formatters (`src/utils/formatters.ts`)
+  - [x] Implement `formatNotification()` function
+  - [x] Implement `formatSubscription()` function
+  - [x] Implement `formatError()` function
+  - [x] Add reason code descriptions
 
 ## Tool Implementations
 
 ### User Notifications Tools
-- [ ] Implement `list-notifications` tool
-  - [ ] Define input schema with Zod
-  - [ ] Implement handler function
-  - [ ] Add pagination support
-  - [ ] Format response for readability
-- [ ] Implement `mark-notifications-read` tool
-  - [ ] Define input schema with Zod
-  - [ ] Implement handler function
-  - [ ] Add validation for parameters
+- [x] Implement `list-notifications` tool
+  - [x] Define input schema with Zod
+  - [x] Implement handler function
+  - [x] Add pagination support
+  - [x] Format response for readability
+- [x] Implement `mark-notifications-read` tool
+  - [x] Define input schema with Zod
+  - [x] Implement handler function
+  - [x] Add validation for parameters
 
 ### Thread Management Tools
-- [ ] Implement `get-thread` tool
-  - [ ] Define input schema with Zod
-  - [ ] Implement handler function
-  - [ ] Format thread details for readability
-- [ ] Implement `mark-thread-read` tool
-  - [ ] Define input schema with Zod
-  - [ ] Implement handler function
-  - [ ] Add response handling
-- [ ] Implement `mark-thread-done` tool
-  - [ ] Define input schema with Zod
-  - [ ] Implement handler function
-  - [ ] Add response handling
+- [x] Implement `get-thread` tool
+  - [x] Define input schema with Zod
+  - [x] Implement handler function
+  - [x] Format thread details for readability
+- [x] Implement `mark-thread-read` tool
+  - [x] Define input schema with Zod
+  - [x] Implement handler function
+  - [x] Add response handling
+- [x] Implement `mark-thread-done` tool
+  - [x] Define input schema with Zod
+  - [x] Implement handler function
+  - [x] Add response handling
 
 ### Thread Subscription Tools
-- [ ] Implement `get-thread-subscription` tool
-  - [ ] Define input schema with Zod
-  - [ ] Implement handler function
-  - [ ] Format subscription information
-- [ ] Implement `set-thread-subscription` tool
-  - [ ] Define input schema with Zod
-  - [ ] Implement handler function
-  - [ ] Validate parameters
-- [ ] Implement `delete-thread-subscription` tool
-  - [ ] Define input schema with Zod
-  - [ ] Implement handler function
-  - [ ] Add response handling
+- [x] Implement `get-thread-subscription` tool
+  - [x] Define input schema with Zod
+  - [x] Implement handler function
+  - [x] Format subscription information
+- [x] Implement `set-thread-subscription` tool
+  - [x] Define input schema with Zod
+  - [x] Implement handler function
+  - [x] Validate parameters
+- [x] Implement `delete-thread-subscription` tool
+  - [x] Define input schema with Zod
+  - [x] Implement handler function
+  - [x] Add response handling
 
 ### Repository Notifications Tools
-- [ ] Implement `list-repo-notifications` tool
-  - [ ] Define input schema with Zod
-  - [ ] Implement handler function
-  - [ ] Support pagination
-  - [ ] Format response for readability
-- [ ] Implement `mark-repo-notifications-read` tool
-  - [ ] Define input schema with Zod
-  - [ ] Implement handler function
-  - [ ] Add validation for parameters
+- [x] Implement `list-repo-notifications` tool
+  - [x] Define input schema with Zod
+  - [x] Implement handler function
+  - [x] Support pagination
+  - [x] Format response for readability
+- [x] Implement `mark-repo-notifications-read` tool
+  - [x] Define input schema with Zod
+  - [x] Implement handler function
+  - [x] Add validation for parameters
 
 ## Server Implementation
 
-- [ ] Create main server setup (`src/server.ts`)
-  - [ ] Initialize MCP server with name and version
-  - [ ] Register all tools with the server
-  - [ ] Configure stdio transport
-  - [ ] Add error handling
-- [ ] Create entry point (`src/index.ts`)
-  - [ ] Handle environment variables with dotenv
-  - [ ] Call server startup function
-  - [ ] Add proper shutdown handling
+- [x] Create main server setup (`src/server.ts`)
+  - [x] Initialize MCP server with name and version
+  - [x] Register all tools with the server
+  - [x] Configure stdio transport
+  - [x] Add error handling
+- [x] Create entry point (`src/index.ts`)
+  - [x] Handle environment variables with dotenv
+  - [x] Call server startup function
+  - [x] Add proper shutdown handling
 
 ## Testing and Quality Assurance
 
@@ -107,25 +107,25 @@ This document outlines the tasks required to implement the GitHub Notifications 
   - [ ] Test with valid inputs
   - [ ] Test with invalid inputs
   - [ ] Test with edge cases
-- [ ] Write clear error messages
+- [x] Write clear error messages
 - [ ] Test with MCP Inspector
 - [ ] Configure and test with Claude Desktop
 
 ## Documentation
 
-- [ ] Write README.md
-  - [ ] Installation instructions
-  - [ ] Usage guide
-  - [ ] Available tools documentation
-  - [ ] Environment setup
-- [ ] Add inline code documentation
-  - [ ] JSDocs for functions
-  - [ ] Comments for complex logic
-- [ ] Create example configuration
+- [x] Write README.md
+  - [x] Installation instructions
+  - [x] Usage guide
+  - [x] Available tools documentation
+  - [x] Environment setup
+- [x] Add inline code documentation
+  - [x] JSDocs for functions
+  - [x] Comments for complex logic
+- [x] Create example configuration
 
 ## Deployment Preparation
 
-- [ ] Create build script for production
-- [ ] Verify environment variable handling
+- [x] Create build script for production
+- [x] Verify environment variable handling
 - [ ] Test full workflow with Claude Desktop
-- [ ] Document Claude Desktop integration
+- [x] Document Claude Desktop integration
