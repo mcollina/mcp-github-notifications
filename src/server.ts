@@ -15,6 +15,7 @@ import { registerSetThreadSubscriptionTool } from "./tools/set-thread-subscripti
 import { registerDeleteThreadSubscriptionTool } from "./tools/delete-thread-subscription.js";
 import { registerListRepoNotificationsTool } from "./tools/list-repo-notifications.js";
 import { registerMarkRepoNotificationsReadTool } from "./tools/mark-repo-notifications-read.js";
+import { registerManageRepoSubscriptionTool } from "./tools/manage-repo-subscription.js";
 
 /**
  * Initialize and start the MCP server
@@ -30,9 +31,9 @@ export async function startServer() {
         tools: {}
       }
     });
-    
+
     console.error("Initializing GitHub Notifications MCP Server...");
-    
+
     // Register all tools
     registerListNotificationsTool(server);
     registerMarkNotificationsReadTool(server);
@@ -44,13 +45,14 @@ export async function startServer() {
     registerDeleteThreadSubscriptionTool(server);
     registerListRepoNotificationsTool(server);
     registerMarkRepoNotificationsReadTool(server);
-    
+    registerManageRepoSubscriptionTool(server);
+
     console.error("All tools registered successfully.");
-    
+
     // Connect using stdio transport
     const transport = new StdioServerTransport();
     await server.connect(transport);
-    
+
     console.error("GitHub Notifications MCP Server running on stdio transport.");
     console.error("Authentication: Using GITHUB_TOKEN environment variable.");
   } catch (error) {
