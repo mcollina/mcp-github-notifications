@@ -10,6 +10,7 @@ An MCP (Model Context Protocol) server that provides tools for managing GitHub n
 - Subscribe or unsubscribe from notification threads
 - Mark threads as done
 - Manage repository-specific notifications
+- Control repository notification settings (all activity, default, or mute)
 
 ## Prerequisites
 
@@ -79,6 +80,7 @@ Add the server to your `claude_desktop_config.json` file:
 | `delete-thread-subscription` | Unsubscribe from a thread |
 | `list-repo-notifications` | List notifications for a specific repository |
 | `mark-repo-notifications-read` | Mark notifications for a repository as read |
+| `manage-repo-subscription` | Manage repository subscriptions: all_activity, default (participating and @mentions), or ignore (mute) |
 
 ## Example Prompts
 
@@ -91,6 +93,10 @@ Here are some example prompts you can use with Claude Desktop once the server is
 - "Unsubscribe me from thread 12345."
 - "What notifications do I have for the octocat/Hello-World repository?"
 - "Mark all notifications from the octocat/Hello-World repository as read."
+- "Watch all activity on the octocat/Hello-World repository."
+- "Set the octocat/Hello-World repository to default settings (participating and @mentions)."
+- "Check my notification settings for the octocat/Hello-World repository."
+- "Mute all notifications from the octocat/Hello-World repository."
 
 ## Development
 
